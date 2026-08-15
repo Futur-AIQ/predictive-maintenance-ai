@@ -1,0 +1,51 @@
+CODE|EQUIPMENT_TYPE|DESCRIPTION|SEVERITY|RECOMMENDED_ACTION|RESPONSE_TIME_HOURS
+F001|TURBOFAN|Fan blade erosion|MEDIUM|Inspect and replace fan blades as required; blend repair per AMM limits|24
+F002|TURBOFAN|Compressor stall|HIGH|Check inlet conditions and distortion; perform full borescope of HPC stages|8
+F003|TURBOFAN|Combustion instability|HIGH|Inspect all 20 fuel nozzles; clean combustor liner; check ignition system|12
+F004|TURBOFAN|HPT blade creep|CRITICAL|Immediate borescope inspection of HPT stage 1 and 2; replace HPT blades|4
+F005|TURBOFAN|LPT blade damage|HIGH|Borescope inspection of all LPT stages; replace damaged blades as needed|8
+F006|TURBOFAN|Bearing failure - LP shaft|CRITICAL|Immediate engine shutdown and removal from aircraft; replace LP shaft bearings|2
+F007|TURBOFAN|Bearing failure - HP shaft|CRITICAL|Immediate engine shutdown and removal from aircraft; replace HP shaft bearings|2
+F008|TURBOFAN|Vibration anomaly|MEDIUM|Check fan blade balance; inspect bearing wear; reduce power if >0.5 in/s|16
+F009|TURBOFAN|Oil pressure low|HIGH|Inspect oil system for leaks; check oil pump pressure; verify oil level|6
+F010|TURBOFAN|Oil temperature high|HIGH|Check oil cooler effectiveness; reduce power setting; inspect oil system|4
+F011|TURBOFAN|Fuel flow sensor fault|MEDIUM|Calibrate fuel flow sensor; replace if calibration fails or drift >2%|12
+F012|TURBOFAN|T24 sensor fault|LOW|Replace compressor inlet temperature sensor; verify reading with backup probe|24
+F013|TURBOFAN|T30 overtemperature|CRITICAL|Reduce thrust immediately; perform borescope inspection of HPC stages|2
+F014|TURBOFAN|Ps30 out of range|MEDIUM|Inspect and clean pressure taps; recalibrate transducer; check bleed valves|12
+F015|TURBOFAN|Exhaust gas overtemperature|CRITICAL|Reduce power to idle immediately; land at nearest airport; inspect HPT and LPT|1
+F016|TURBOFAN|Fan blade FOD impact|HIGH|Perform borescope inspection of fan; assess blade damage against blend limits|6
+F017|TURBOFAN|Bleed valve stuck|MEDIUM|Clean and lubricate bleed valve actuator; replace valve if stuck closed or open|8
+F018|TURBOFAN|Ignition system fault|HIGH|Replace igniter plugs; test ignition exciter output; verify ignition lead continuity|6
+F019|TURBOFAN|Thrust reverser fault|HIGH|Inspect reverser actuators and hydraulic lines; check blocker door linkage|8
+F020|TURBOFAN|Oil leak detected|MEDIUM|Locate leak source; inspect all oil seals and O-rings; repair or replace seals|12
+P001|PUMP|Cavitation|HIGH|Calculate NPSHa vs NPSHr; reduce flow rate; check suction strainer for blockage|4
+P002|PUMP|Seal leakage|MEDIUM|Inspect mechanical seal faces; replace seal assembly; verify shaft runout <0.002 in|8
+P003|PUMP|Bearing overheating|HIGH|Check oil level and quality; perform oil analysis; replace bearing set if T >85 deg C|6
+P004|PUMP|Impeller wear|MEDIUM|Measure wear ring clearance; replace impeller and wear rings if clearance >0.020 in|16
+P005|PUMP|Vibration high|HIGH|Check pump-motor alignment; balance impeller; inspect bearings; check piping supports|8
+P006|PUMP|Flow rate drop|MEDIUM|Inspect and clean suction strainer; check wear ring clearance; clear discharge blockage|12
+P007|PUMP|Shaft seal leak|HIGH|Isolate pump; replace shaft mechanical seal assembly; inspect shaft for damage|8
+P008|PUMP|Motor overload|HIGH|Check impeller for blockage or debris; measure motor current; verify discharge is open|4
+P009|PUMP|Suction strainer blocked|MEDIUM|Shutdown pump; clean suction strainer basket; measure differential pressure after clean|2
+P010|PUMP|Discharge pressure low|MEDIUM|Check impeller condition and wear ring clearance; inspect check valves; check speed|8
+P011|PUMP|Oil contamination|HIGH|Drain and flush bearing housing; submit oil sample; identify and eliminate contamination source|6
+P012|PUMP|Coupling misalignment|MEDIUM|Realign pump and motor using dial indicator; accept <0.002 in TIR offset|4
+P013|PUMP|Shaft bow|HIGH|Measure shaft runout at bearing seats; replace shaft if TIR >0.003 in at coupling|24
+P014|PUMP|Casing crack|CRITICAL|Immediate pump shutdown and isolation; depressurize; replace casing assembly|2
+P015|PUMP|Bearing housing crack|CRITICAL|Immediate pump shutdown; do not restart; replace bearing housing before return to service|2
+C001|COMPRESSOR|Valve failure - suction|HIGH|Remove and replace suction valve plates and springs; check seat flatness <0.002 in|8
+C002|COMPRESSOR|Valve failure - discharge|HIGH|Remove and replace discharge valve plates and springs; lap or replace seats|8
+C003|COMPRESSOR|Piston ring wear|MEDIUM|Disassemble cylinder; measure ring end gap; replace rings if gap >0.018 in|16
+C004|COMPRESSOR|Cylinder overheating|CRITICAL|Reduce compressor load immediately; verify cooling water flow >15 GPM; check valves|2
+C005|COMPRESSOR|Intercooler fouling|MEDIUM|Clean tube bundle with 10% citric acid solution; verify pressure drop <5 psi after clean|12
+C006|COMPRESSOR|Oil pressure low|CRITICAL|Emergency shutdown immediately; check oil level; inspect oil pump and filter; find cause|1
+C007|COMPRESSOR|High vibration|HIGH|Check crankshaft bearing clearances; inspect crosshead alignment; verify foundation bolts|8
+C008|COMPRESSOR|Crosshead wear|HIGH|Measure crosshead clearance; replace crosshead shoes if clearance >0.020 in|24
+C009|COMPRESSOR|Rod packing leak|MEDIUM|Replace piston rod packing rings; inspect rod surface for scoring; purge packing case|8
+C010|COMPRESSOR|Crankshaft bearing failure|CRITICAL|Immediate emergency shutdown; open crankcase; inspect and replace all affected bearings|2
+C011|COMPRESSOR|High discharge temperature|HIGH|Check intercooler cooling water flow; inspect discharge valves; reduce compression ratio|6
+C012|COMPRESSOR|Low inlet pressure|MEDIUM|Inspect inlet filter for blockage; check suction line for obstructions; verify upstream source|4
+C013|COMPRESSOR|PSV lift|HIGH|Reduce system pressure; identify cause of overpressure; inspect PSV for proper reseating|4
+C014|COMPRESSOR|Intercooler leak|HIGH|Isolate and depressurize intercooler; perform hydrostatic test; plug or replace leaking tubes|8
+C015|COMPRESSOR|Lube oil contamination|HIGH|Drain and flush entire lubrication system; identify and eliminate contamination source; refill with fresh oil|8

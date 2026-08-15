@@ -1,0 +1,414 @@
+TURBOFAN ENGINE MAINTENANCE MANUAL
+CFM56-7B Series
+Document Number: TM-CFM56-7B-001
+Revision: Rev C
+Effective Date: 2023-01-15
+Classification: Technical Operations Manual
+
+================================================================================
+
+1. OVERVIEW
+================================================================================
+
+The CFM56-7B is a high-bypass turbofan engine developed through a joint venture
+between CFM International (a partnership of GE Aviation and Safran Aircraft
+Engines). It is the exclusive powerplant for the Boeing 737 Next Generation
+family of commercial aircraft and represents one of the most widely used jet
+engines in commercial aviation history.
+
+Engine Designation:      CFM56-7B
+Engine Type:             Dual-spool, high-bypass turbofan
+Bypass Ratio:            5.1:1
+Maximum Thrust:          27,300 lbf (sea level static, ISA conditions)
+Overall Pressure Ratio:  32.7:1
+Fan Pressure Ratio:      1.65
+Turbine Inlet Temperature (max): 1,415°C (2,579°F)
+Engine Dry Weight:       5,765 lb (2,615 kg)
+Length:                  98.7 in (2,507 mm)
+Fan Diameter:            61.0 in (1,549 mm)
+Certification:           FAA, EASA airworthy
+
+The dual-spool design separates the low-pressure (LP) and high-pressure (HP)
+spools, allowing each to rotate at its optimal speed. The LP spool consists of
+the fan and low-pressure compressor (LPC) connected to the low-pressure turbine
+(LPT). The HP spool consists of the high-pressure compressor (HPC) connected to
+the high-pressure turbine (HPT). This architecture improves thermodynamic
+efficiency across a wider range of operating conditions.
+
+The high bypass ratio of 5.1:1 means that for every unit of air passing through
+the engine core, 5.1 units bypass the core through the fan duct. This results
+in superior fuel efficiency and reduced noise compared to turbojet designs.
+
+================================================================================
+
+2. KEY COMPONENTS
+================================================================================
+
+2.1 Fan Assembly
+    - Number of blades: 38
+    - Material: Titanium alloy (Ti-6Al-4V)
+    - Fan diameter: 61 inches (1,549 mm)
+    - Fan tip speed (max): 1,350 ft/s
+    - Blade attachment: Dovetail root with snubber
+    - Each blade is individually replaceable and tracked by serial number
+    - Fan case incorporates abradable honeycomb liner for blade tip clearance
+      control and containment capability per FAR 33.94
+
+2.2 Low-Pressure Compressor (LPC)
+    - Number of stages: 4
+    - Also referred to as the booster
+    - Overall pressure ratio (LPC): 1.7:1
+    - Rotor material: Titanium alloy
+    - Stator material: Aluminum alloy and titanium
+    - Variable stator vanes: None (fixed geometry)
+    - Connected directly to fan via LP shaft
+
+2.3 High-Pressure Compressor (HPC)
+    - Number of stages: 9
+    - Overall pressure ratio (HPC): 14.7:1
+    - Rotor material: Titanium (stages 1-6), Nickel alloy (stages 7-9)
+    - Stator material: Steel and nickel alloy
+    - Variable inlet guide vanes (VIGV): Present on stage 1
+    - Variable stator vanes (VSV): Present on stages 2-5
+    - Bleed ports: Stage 5 (customer bleed) and stage 9 (high-pressure bleed)
+
+2.4 Combustion Chamber
+    - Type: Annular combustion chamber (single annular combustor, SAC)
+    - Number of fuel nozzles: 20 (dual-orifice)
+    - Liner material: Hastelloy X with thermal barrier coating
+    - Igniter location: 2 igniters at 4 o'clock and 8 o'clock positions
+    - Combustion efficiency: >99.5%
+    - Emissions: CAEP/8 compliant
+
+2.5 High-Pressure Turbine (HPT)
+    - Number of stages: 2
+    - Blade material: Single-crystal nickel superalloy with TBC coating
+    - Blade cooling: Internal convective and film cooling with trailing edge ejection
+    - Nozzle guide vane (NGV) material: DS nickel superalloy
+    - Turbine inlet temperature (max): 1,415°C
+    - HPT stages drive the HP compressor directly via HP shaft
+
+2.6 Low-Pressure Turbine (LPT)
+    - Number of stages: 4
+    - Blade material: Conventional cast nickel superalloy
+    - Blade cooling: Limited (stage 1 only)
+    - LPT drives fan and LPC via LP shaft
+    - Pressure ratio across LPT: approximately 5:1
+
+2.7 Exhaust Nozzle
+    - Type: Fixed area convergent nozzle (primary)
+    - Thrust reverser: Cascade-type with blocker doors
+    - Thrust reverser actuators: Hydraulically operated
+    - Exhaust gas temperature (EGT) thermocouple ring: 8 probes
+
+================================================================================
+
+3. SENSOR PARAMETERS AND NORMAL OPERATING RANGES
+================================================================================
+
+All sensor readings should be monitored continuously during operation. Deviations
+outside normal ranges shall trigger maintenance investigation per Section 4.
+
+T24  | Compressor Inlet Temperature
+     | Normal range:  15°C to 35°C (59°F to 95°F)
+     | WARNING threshold: >40°C or <10°C
+     | Sensor type: Thermocouple, Pt100 RTD
+     | Location: LPC inlet, 2 o'clock position
+     | Notes: Influenced by ambient conditions; correct for ISA deviation
+
+T30  | High-Pressure Compressor Outlet Temperature
+     | Normal range:  450°C to 620°C (842°F to 1,148°F)
+     | WARNING threshold: >640°C
+     | CRITICAL threshold: >680°C (triggers FADEC alert)
+     | Sensor type: Type K thermocouple
+     | Location: HPC exit diffuser, 3 o'clock and 9 o'clock positions
+
+T50  | Low-Pressure Turbine Outlet Temperature (EGT proxy)
+     | Normal range:  400°C to 550°C (752°F to 1,022°F)
+     | WARNING threshold: >570°C
+     | CRITICAL threshold: >620°C
+     | Sensor type: Type K thermocouple harness (8 probes)
+     | Location: LPT exit plane
+
+Ps30 | High-Pressure Compressor Static Pressure
+     | Normal range:  200 psi to 350 psi
+     | WARNING threshold: <190 psi or >365 psi
+     | Sensor type: Piezoelectric pressure transducer
+     | Location: HPC exit casing bleed port
+
+phi  | Fuel-to-Air Ratio (equivalence ratio)
+     | Normal range:  0.025 to 0.035
+     | Calculated from fuel flow (Wf) and corrected airflow (W2)
+     | Abnormal values indicate combustion or fuel metering anomalies
+
+NRf  | Fan Speed Ratio (corrected)
+     | Normal range:  0.95 to 1.05 (ratio to design point)
+     | WARNING threshold: <0.90 or >1.08
+     | Sensor type: Magnetic speed sensor on LP shaft
+     | Units: Dimensionless (corrected for inlet temperature)
+
+BPR  | Bypass Ratio
+     | Normal range:  4.8 to 5.4
+     | Calculated from fan mass flow and core mass flow measurements
+     | Deviation may indicate core or fan damage
+
+htBleed | High-Throttle Bleed (normalized bleed valve position)
+        | Normal range: 0 to 1 (0 = fully closed, 1 = fully open)
+        | Customer bleed extractions reduce core pressure ratio
+        | Monitor for stuck valve conditions
+
+W31  | HPT Coolant Flow Rate
+     | Normal range:  10 lb/s to 20 lb/s
+     | WARNING threshold: <8 lb/s
+     | Sensor type: Coriolis mass flow meter
+     | Location: HPT cooling air supply manifold
+
+W32  | LPT Coolant Flow Rate
+     | Normal range:  8 lb/s to 16 lb/s
+     | WARNING threshold: <6 lb/s
+     | Sensor type: Differential pressure flow element
+     | Location: LPT cooling air duct
+
+================================================================================
+
+4. FAULT CODES AND CORRECTIVE ACTIONS
+================================================================================
+
+CODE | FAULT DESCRIPTION              | SEVERITY | RECOMMENDED ACTION                        | RESP TIME
+-----|--------------------------------|----------|-------------------------------------------|----------
+F001 | Fan blade erosion              | MEDIUM   | Inspect/replace fan blades                | 24h
+F002 | Compressor stall               | HIGH     | Check inlet conditions, perform borescope | 8h
+F003 | Combustion instability         | HIGH     | Inspect fuel nozzles, clean combustor     | 12h
+F004 | HPT blade creep                | CRITICAL | Immediate borescope, replace HPT blades   | 4h
+F005 | LPT blade damage               | HIGH     | Borescope inspection, replace if needed   | 8h
+F006 | Bearing failure - LP shaft     | CRITICAL | Immediate engine removal                  | 2h
+F007 | Bearing failure - HP shaft     | CRITICAL | Immediate engine removal                  | 2h
+F008 | Vibration anomaly              | MEDIUM   | Check balance, bearing wear               | 16h
+F009 | Oil pressure low               | HIGH     | Inspect oil system, check pump            | 6h
+F010 | Oil temperature high           | HIGH     | Check oil cooler, reduce power            | 4h
+F011 | Fuel flow sensor fault         | MEDIUM   | Calibrate/replace sensor                  | 12h
+F012 | T24 sensor fault               | LOW      | Replace temperature sensor                | 24h
+F013 | T30 overtemperature            | CRITICAL | Reduce thrust, borescope HPC              | 2h
+F014 | Ps30 out of range              | MEDIUM   | Check pressure taps, recalibrate          | 12h
+F015 | Exhaust gas overtemperature    | CRITICAL | Reduce power immediately, inspect         | 1h
+F016 | Fan blade FOD impact           | HIGH     | Borescope fan, assess damage              | 6h
+F017 | Bleed valve stuck              | MEDIUM   | Clean/replace bleed valve                 | 8h
+F018 | Ignition system fault          | HIGH     | Replace igniter plugs                     | 6h
+F019 | Thrust reverser fault          | HIGH     | Inspect actuators, hydraulics             | 8h
+F020 | Oil leak detected              | MEDIUM   | Locate and repair seal                    | 12h
+
+FAULT CODE DETAILS:
+
+F001 - Fan Blade Erosion
+  Trigger: Leading edge erosion detected via visual inspection or performance
+  degradation (thrust loss >2%). Erosion caused by ingestion of sand, dust,
+  or water droplets at high velocity.
+  Action: Blend repair per limits in AMM Chapter 72-21. If erosion exceeds
+  blend limits, replace blade and re-balance fan assembly.
+
+F002 - Compressor Stall
+  Trigger: Sudden pressure fluctuation in Ps30, accompanied by loud bang or
+  flame from inlet. FADEC records surge event.
+  Action: Borescope all HPC stages. Check inlet total pressure distortion.
+  Verify VSV rigging. Inspect for FOD damage.
+
+F006 - Bearing Failure (LP Shaft)
+  Trigger: High vibration (N1 channel), rising oil temperature, metal particles
+  in oil filter, or ECAM/EICAS bearing temperature alert.
+  Action: Immediate engine shutdown. Remove engine from aircraft. Replace LP
+  shaft bearing set (forward and aft). Inspect shaft for scoring.
+
+F015 - Exhaust Gas Overtemperature
+  Trigger: T50 exceeds 620°C for more than 5 seconds. Immediate FADEC derate.
+  Action: Reduce thrust to idle. Land at nearest suitable airport. After
+  landing, perform EGT over-temperature inspection per AMM 77-10. Borescope
+  HPT and LPT before return to service.
+
+================================================================================
+
+5. MAINTENANCE INTERVALS
+================================================================================
+
+5.1 500-Cycle Check (Approximately every 6 weeks for short-haul operations)
+    - Visual inspection of fan blades (leading and trailing edges)
+    - Check fan blade dovetail retention
+    - Inspect fan cowl latches and seals
+    - Engine oil change (use only approved MIL-PRF-23699 turbine oil)
+    - Oil filter element replacement
+    - Oil system chip detector check
+    - Check thrust reverser actuation system
+    - Inspect igniter plug condition and gap (replace if gap >0.080 in)
+    - Review FADEC fault history download
+
+5.2 1000-Cycle Check (Approximately every 3 months)
+    - All items in 500-cycle check, plus:
+    - Full borescope inspection of all LPC stages (4 stages)
+    - Full borescope inspection of all HPC stages (9 stages)
+    - Borescope inspection of combustion chamber (all 20 fuel nozzle ports)
+    - Borescope inspection of HPT stage 1 and stage 2 blades
+    - Borescope inspection of LPT stage 1 blades
+    - LP and HP bearing vibration trending review (ACARS data)
+    - Fuel nozzle flow check (remove 4 nozzles for bench test, rotate selection)
+    - VSV actuator rigging check
+    - Customer bleed valve cycling test
+    - Engine mount and pylon inspection
+
+5.3 5000-Cycle Check (Full Engine Overhaul - Engine Shop Visit)
+    - Engine removal from aircraft
+    - Complete disassembly and inspection of all modules
+    - Fan blade replacement (full set, or as determined by inspection)
+    - All bearing replacement (LP forward, LP aft, HP forward, HP aft)
+    - HPT blade and nozzle guide vane replacement
+    - LPT blade replacement (stages as determined)
+    - All internal seals and labyrinth seals replacement
+    - Combustion liner replacement or refurbishment
+    - Fuel nozzle overhaul (all 20 nozzles)
+    - Compressor wash and cleaning
+    - Non-destructive testing (NDT) of critical rotating components
+    - Dimensional inspection of shafts, discs, and cases
+    - Engine reassembly to new-part tolerances
+    - Test cell run and acceptance testing
+    - Re-certification to airworthy standard
+
+================================================================================
+
+6. BEARING REPLACEMENT PROCEDURE
+================================================================================
+
+Step 1: Engine Preparation and Safety
+  Lock out / tag out engine per maintenance safety protocol. Drain oil system
+  completely. Allow engine to cool to ambient temperature (minimum 2 hours
+  after last operation). Install engine stand adapter and secure engine on
+  maintenance stand. Install inlet and exhaust covers.
+
+Step 2: Module Disassembly Sequence
+  Remove fan cowl panels. Disconnect all electrical connectors, oil lines, and
+  fuel lines. Remove fan assembly (front fan frame and LP compressor module).
+  Separate HP compressor module from combustion case. Access bearing compartments
+  by removing front and rear bearing support housings.
+
+Step 3: Bearing Removal
+  Heat bearing housing to 100°C using induction heater to ease bearing removal.
+  Use bearing puller tool (P/N: 157A1050G01) to extract bearing from shaft.
+  Do not apply force to bearing balls or rollers. Inspect shaft journal for
+  scoring, fretting, or corrosion. Measure shaft diameter; replace shaft if
+  outside tolerance of ±0.0005 in.
+
+Step 4: New Bearing Installation
+  Clean bearing bore and shaft journal with approved solvent. Apply thin coat
+  of engine oil to bearing bore. Cool new bearing in dry ice for 30 minutes.
+  Install bearing using hydraulic press and bearing installation tool. Verify
+  bearing is fully seated against shoulder. Torque bearing retaining nut to
+  specified value (HP bearing: 350 ft-lb, LP bearing: 220 ft-lb).
+
+Step 5: Reassembly and Oil System Priming
+  Reassemble all modules in reverse order of disassembly. Install new O-rings
+  and seals throughout. Reconnect oil lines, fuel lines, and electrical
+  connectors. Perform oil system pre-fill and prime. Run engine at ground idle
+  for 5 minutes; check for oil leaks and unusual vibration.
+
+Step 6: Post-Replacement Testing and Documentation
+  Perform full engine run per acceptance test procedure. Record N1, N2, EGT,
+  oil pressure, oil temperature, and vibration levels. Vibration must be
+  below 0.3 in/s at all power settings. Complete maintenance records and
+  update engine log book. Return engine to serviceable status.
+
+================================================================================
+
+7. BLADE INSPECTION CHECKLIST
+================================================================================
+
+Item 1: Leading Edge Condition
+  Inspect fan and compressor blade leading edges for nicks, dents, gouges,
+  and erosion. Use blade inspection template to measure nick depth. Nicks
+  exceeding 0.040 in depth require blend repair or blade replacement.
+
+Item 2: Trailing Edge Condition
+  Check trailing edges for cracks, curling, or delamination. Any cracks at
+  trailing edge are cause for immediate removal. Trailing edge deformation
+  greater than 5 degrees requires replacement.
+
+Item 3: Airfoil Surface Condition
+  Inspect pressure and suction surfaces for corrosion pitting, scratches,
+  and erosion damage. Measure surface roughness where suspected. Corrosion
+  pitting deeper than 0.010 in requires repair or replacement.
+
+Item 4: Root Attachment and Dovetail
+  Remove each fan blade and inspect dovetail for fretting wear, cracks, and
+  corrosion. Inspect platform shoulders for wear. Dovetail fretting exceeding
+  0.005 in wear depth requires replacement.
+
+Item 5: Tip Clearance
+  Measure blade tip clearance using feeler gauge at 4 circumferential locations
+  (0°, 90°, 180°, 270°). Normal tip clearance: 0.030-0.060 in. Clearance
+  exceeding 0.080 in indicates excessive casing wear or blade thinning.
+
+Item 6: Blade Twist and Camber
+  Use optical measurement system to check blade aerodynamic profile at 25%,
+  50%, and 75% span stations. Blade twist deviation greater than 0.5 degree
+  from nominal is cause for removal and further evaluation.
+
+Item 7: Foreign Object Damage Assessment
+  Following any bird strike or hard landing event, perform detailed FOD
+  inspection using borescope. Document all damage with photographs. Assess
+  whether blade is within blend repair limits or requires replacement.
+
+Item 8: Vibration and Balance Check
+  After any blade replacement, perform fan assembly balance check. Residual
+  imbalance must not exceed 0.5 oz-in per plane. Use trim balance weights as
+  needed. Document balance correction weight and position in engine records.
+
+================================================================================
+
+8. VIBRATION LIMITS
+================================================================================
+
+Vibration measurements are taken at the fan case (N1 channel) and core case
+(N2 channel) using accelerometers. Units are velocity in inches per second
+(in/s) peak, measured at operating speed.
+
+NORMAL:   Less than 0.5 in/s
+  Engine is operating within acceptable vibration limits. Continue normal
+  operation. Record vibration trend data for analysis.
+
+WARNING:  0.5 to 1.0 in/s
+  Elevated vibration detected. Reduce power setting to reduce vibration if
+  possible. Schedule borescope inspection within next 25 flight hours.
+  Check fan blade balance. Investigate bearing condition via oil analysis.
+  Increased monitoring frequency required; take readings every 10 flight hours.
+
+CRITICAL: Greater than 1.0 in/s
+  Unacceptable vibration level. Immediate engine shutdown required. Do not
+  attempt to continue operation. Remove engine from aircraft. Perform full
+  borescope inspection of all rotating components. Inspect all bearings for
+  failure. Inspect fan blades for loss of a blade segment or FOD. Engine must
+  not return to service until vibration cause is identified and corrected,
+  and post-repair vibration verified below 0.5 in/s.
+
+Note: Transient vibration spikes above 1.0 in/s during start or shutdown are
+acceptable, provided steady-state vibration is within NORMAL limits. Document
+any exceedances in the engine health monitoring system.
+
+================================================================================
+9. QUICK REFERENCE SUMMARY
+================================================================================
+
+VIBRATION LIMITS SUMMARY:
+  Normal:   Less than 0.5 in/s — continue operation
+  Warning:  0.5 to 1.0 in/s — schedule inspection within 25 flight hours
+  Critical: Greater than 1.0 in/s — immediate engine shutdown required
+
+MAINTENANCE INTERVALS SUMMARY:
+  500-cycle check:  visual inspection of fan blades and engine oil change
+  1000-cycle check: borescope inspection of all LPC, HPC, HPT, and LPT stages
+  5000-cycle check: full engine overhaul, all bearings replaced, disassembly
+
+CRITICAL FAULT CODES SUMMARY:
+  F006 — Bearing failure LP shaft: CRITICAL, immediate engine removal, response time 2 hours
+  F007 — Bearing failure HP shaft: CRITICAL, immediate removal, 2-hour response
+  F015 — Exhaust gas overtemperature: CRITICAL, reduce power, 1-hour response
+
+================================================================================
+END OF DOCUMENT
+TM-CFM56-7B-001 Rev C
+================================================================================

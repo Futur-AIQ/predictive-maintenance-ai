@@ -1,0 +1,354 @@
+CENTRIFUGAL PUMP MAINTENANCE MANUAL
+API 610 Process Pump — Model CP-500 Series
+Document Number: PM-CP500-001
+Revision: Rev B
+Effective Date: 2023-03-01
+Classification: Technical Maintenance Reference
+
+================================================================================
+
+1. OVERVIEW
+================================================================================
+
+The CP-500 Series centrifugal process pump is designed and manufactured in
+accordance with API Standard 610, 12th Edition (Centrifugal Pumps for
+Petroleum, Petrochemical, and Natural Gas Industries). These pumps are intended
+for continuous service in demanding refinery, chemical plant, and pipeline
+applications where reliability and long service life are paramount.
+
+Pump Designation:       CP-500 Series (OH2 / BB2 configurations)
+Pump Type:              Single-stage, radially split, overhung centrifugal
+Design Standard:        API 610, 12th Edition
+Flow Range:             500 to 2,000 GPM (113 to 454 m³/h)
+Maximum Head:           800 ft (244 m) at best efficiency point
+Maximum Allowable Working Pressure (MAWP): 600 PSIG
+Temperature Range:      -50°F to +450°F (-46°C to +232°C)
+Maximum Speed:          3,600 RPM (60 Hz), 3,000 RPM (50 Hz)
+Driver:                 Electric motor, direct-coupled via flexible coupling
+Nozzle Loads:           Per API 610 Table 4 (2x standard)
+Casing Material:        ASTM A216 WCB carbon steel (standard)
+                        ASTM A351 CF8M stainless steel (optional)
+
+The pumps are equipped with heavy-duty bearing housings, robust mechanical
+seals, and are designed for a minimum L10 bearing life of 25,000 hours at
+maximum continuous rated conditions. All pressure-containing components are
+hydrostatically tested to 1.5x MAWP before shipment.
+
+================================================================================
+
+2. COMPONENTS
+================================================================================
+
+2.1 Impeller
+    - Type: Semi-open (for clean liquids) or closed (for clean and slightly
+      contaminated liquids)
+    - Number of vanes: 12
+    - Material: Stainless steel AISI 316L (standard); Duplex SS 2205 (optional)
+    - Impeller diameter (maximum): 14.0 in (355.6 mm)
+    - Impeller diameter (minimum): 10.0 in (254.0 mm)
+    - Trim capability: 20% maximum diameter reduction
+    - Dynamic balance: G2.5 per ISO 1940-1
+    - Attachment: Keyed hub with locknut and tab washer
+
+2.2 Volute Casing
+    - Type: Single-volute (< 500 GPM), double-volute (≥ 500 GPM)
+    - Discharge nozzle orientation: Configurable (top, side, or bottom)
+    - Casing split: Radial (perpendicular to shaft axis)
+    - Drain plug: 3/4 in NPT at lowest point
+    - Vent plug: 1/2 in NPT at highest point
+    - Foot-mounted design for ease of alignment and maintenance
+
+2.3 Mechanical Seal
+    - Type: John Crane Type 1 single pusher mechanical seal
+    - Seal material: Carbon/silicon carbide faces (standard)
+                     Silicon carbide/silicon carbide (for abrasive service)
+    - Elastomers: Fluoroelastomer (Viton) standard; EPDM optional
+    - Gland material: 316 stainless steel
+    - Seal flush plan: API Plan 11 (standard), Plan 23 (hot service),
+                       Plan 52 (toxic/hazardous service)
+    - Expected seal life: 24,000 hours minimum under normal conditions
+    - Target leakage: Zero fugitive emissions (VOC < 500 ppm)
+
+2.4 Bearing Housing
+    - Radial bearing: SKF 6309 deep groove ball bearing
+    - Thrust bearing: SKF 7309 angular contact ball bearing (pair)
+    - Bearing housing: Cast iron, precision-bored
+    - Lubrication: Oil bath (standard), oil mist (optional)
+    - Constant level oiler: Trico model, 8 oz capacity
+    - Inboard oil seal: Labyrinth type, non-contacting, carbon steel
+    - Outboard oil seal: Labyrinth type with bearing isolator
+
+2.5 Shaft
+    - Material: AISI 4140 alloy steel, heat treated to 28-32 HRC
+    - Maximum allowable runout (TIR at seal face): 0.002 in (0.05 mm)
+    - Maximum allowable runout (TIR at coupling hub): 0.003 in (0.076 mm)
+    - Shaft deflection at seal face (API 610 limit): 0.002 in maximum
+    - Surface finish at seal area: 32 RMS or better
+    - Surface finish at bearing seats: 16 RMS or better
+    - Keyway: Parallel key, 3/8 x 3/16 in (standard size)
+
+2.6 Wear Rings
+    - Location: Casing and impeller wear rings (both)
+    - Material: 316 stainless steel (standard service)
+                Chrome oxide coated SS (abrasive service)
+    - Diametral clearance (new): 0.010-0.015 in (per pump size)
+    - Maximum allowable clearance before replacement: 0.020 in
+    - Anti-rotation: Lock pins prevent rotation in casing bore
+
+2.7 Stuffing Box
+    - Provides housing for the mechanical seal
+    - Bore tolerance: +0.000/-0.001 in
+    - Flush connection: 1/4 in NPT (API Plan 11 flush)
+    - Cooling jacket (optional for high-temperature service)
+
+================================================================================
+
+3. SEAL TYPES
+================================================================================
+
+3.1 Mechanical Seal (Preferred Installation)
+    Mechanical seals are the preferred sealing arrangement for all process pump
+    applications. They provide essentially zero leakage to atmosphere, complying
+    with EPA 40 CFR Part 63 (MACT) and API 682 fugitive emission standards.
+
+    Installation requirements:
+    - Shaft runout must be <0.002 in TIR before seal installation
+    - Stuffing box face must be perpendicular to shaft within 0.002 in TIR
+    - Seal setting dimension: Per manufacturer's installation drawing
+    - Hydraulic pressure test of gland and flush connections before startup
+    - Break-in period: Reduce speed by 20% for first 4 hours of operation
+
+    Expected leakage rate: 0 drops per minute (zero visible leakage)
+    If visible leakage occurs within the first 24 hours, shut down and reseat
+    seal faces.
+
+3.2 Gland Packing (Permitted for Water and Non-Hazardous Fluids)
+    Gland packing is permitted as an alternative sealing method for clear water
+    service and other non-hazardous, non-toxic process fluids where fugitive
+    emission limits are not applicable.
+
+    Packing specification: Braided PTFE (standard water service)
+                           Graphite-impregnated (high temperature >200°F)
+    Number of packing rings: 5 rings
+    Maximum allowable leakage: 10 drops per minute (approximately 3 mL/min)
+    If leakage exceeds 10 drops/min, tighten gland nuts 1/6 turn and monitor.
+    Do not overtighten packing; this causes shaft sleeve wear and overheating.
+    Replace packing set annually, or when leakage cannot be controlled.
+
+================================================================================
+
+4. BEARING SPECIFICATIONS
+================================================================================
+
+4.1 Radial Bearing — SKF 6309
+    - Type: Deep groove ball bearing, single row
+    - Bore: 45 mm (1.772 in)
+    - OD: 100 mm (3.937 in)
+    - Width: 25 mm (0.984 in)
+    - Dynamic load rating (C): 55.9 kN
+    - Static load rating (C0): 31.5 kN
+    - L10 service life: 25,000 hours at rated pump conditions
+    - Maximum operating temperature: 120°C (248°F)
+
+4.2 Thrust Bearing — SKF 7309 Angular Contact (Pair)
+    - Type: Angular contact ball bearing, 40° contact angle
+    - Bore: 45 mm (1.772 in)
+    - OD: 100 mm (3.937 in)
+    - Width: 25 mm (0.984 in) per bearing
+    - Dynamic load rating (C): 67.2 kN
+    - Static load rating (C0): 42.0 kN
+    - L10 service life: 20,000 hours at rated thrust loads
+    - Mounting: Back-to-back (DB) arrangement
+
+4.3 Lubrication
+    - Lubricant type: ISO VG 68 mineral oil (anti-rust, anti-oxidation additive)
+    - Approved brands: Shell Tellus S2 M 68, Mobil DTE 26, Castrol Hyspin AWS 68
+    - Oil level: Maintained at center of sight glass using constant level oiler
+    - Oil capacity (bearing housing): 1.2 quarts (1.1 liters)
+    - Oil change interval: Every 4,000 operating hours or annually (whichever first)
+    - Oil analysis recommended at each change; see Section 7 for criteria
+
+================================================================================
+
+5. VIBRATION STANDARDS (ISO 10816 / ISO 20816)
+================================================================================
+
+Vibration measurements per ISO 10816-3 for industrial machines with power above
+15 kW. Measurements taken at bearing housing locations in three directions
+(radial-horizontal, radial-vertical, axial). Units: mm/s RMS (velocity).
+
+Classification for CP-500 pumps: Class II (machine power 15 kW to 75 kW)
+
+NORMAL:   Less than 2.3 mm/s RMS
+  Pump is operating within acceptable vibration limits. Continue normal
+  operation. Log vibration readings at each monthly inspection.
+
+WARNING:  2.3 mm/s to 4.5 mm/s RMS (Zone B/C boundary)
+  Elevated vibration has been detected. The pump may continue to operate, but
+  a detailed investigation must be initiated within 5 business days.
+  Perform the following: Check pump-to-motor alignment (accept <0.002 in TIR
+  offset, <0.001 in/in angularity). Check impeller balance. Check bearing
+  condition via vibration spectrum analysis. Check suction and discharge
+  piping supports for resonance. Reduce flow rate if cavitation is suspected.
+
+CRITICAL: Greater than 4.5 mm/s RMS (Zone D)
+  Pump vibration is at a level that is liable to cause damage to the machine.
+  Initiate orderly pump shutdown immediately. Transfer service to spare pump
+  if available. Do not restart pump until root cause has been identified and
+  corrective action taken. Bearing replacement, re-alignment, or impeller
+  replacement is required.
+
+================================================================================
+
+6. CAVITATION DETECTION AND DIAGNOSIS
+================================================================================
+
+6.1 Signs of Cavitation
+    - Audible noise: Crackling or popping sound resembling gravel in the pump
+    - Increased vibration levels: Typically broadband increase in spectrum
+    - Performance degradation: Reduced head (>3% drop from rated curve) and
+      reduced flow rate at the same operating point
+    - Pitting damage: Visible erosion on impeller vanes (suction surface) and
+      casing surfaces when disassembled for inspection
+
+6.2 Common Causes of Cavitation
+    - Insufficient Net Positive Suction Head Available (NPSHa):
+      NPSHa must exceed NPSHr (required) by minimum 0.5 ft margin
+    - High liquid temperature reducing vapor pressure margin
+    - Excessive flow rate (operating far right of pump curve)
+    - Blocked or undersized suction piping
+    - Air entrainment in suction piping
+    - Vortexing at suction sump (insufficient submergence)
+
+6.3 Remedies for Cavitation
+    - Increase suction pressure by raising suction vessel liquid level
+    - Reduce pump speed (if variable frequency drive is installed)
+    - Trim impeller diameter to reduce NPSHr
+    - Check suction strainer for blockage; clean if differential pressure >2 psi
+    - Install suction line booster pump
+    - Reduce liquid temperature by improving heat exchanger performance
+    - Add cavitation-suppression vortex breaker to suction sump
+
+================================================================================
+
+7. IMPELLER INSPECTION
+================================================================================
+
+7.1 Wear Ring Clearance Check
+    Measure diametral clearance between impeller wear ring and casing wear ring
+    using feeler gauges or inside/outside micrometers.
+    - New clearance: 0.010 to 0.015 in
+    - Maximum allowable clearance: 0.020 in
+    - If clearance exceeds 0.020 in: Replace both wear rings (impeller and casing)
+
+7.2 Vane Erosion Assessment
+    Inspect all 12 vane surfaces for erosion, cavitation pitting, and mechanical
+    damage. Any vane eroded more than 10% of its original thickness (measured
+    at mid-span) requires impeller replacement. Blend repair is not permitted
+    on impeller vanes due to balance criticality.
+
+7.3 Impeller Balancing Procedure
+    After any impeller repair, trim, or replacement, perform dynamic balance:
+    - Mount impeller on balance arbor
+    - Balance to ISO 1940-1 Grade G2.5
+    - At 3,600 RPM: maximum residual imbalance = 0.5 oz-in per plane
+    - Correction method: Material removal from balance land on hub face
+    - Re-check balance after correction; maximum 3 correction iterations
+
+================================================================================
+
+8. LUBRICATION SCHEDULE
+================================================================================
+
+Weekly Inspection:
+    - Check oil level in bearing housing via sight glass
+    - Top up with ISO VG 68 oil if level below center of sight glass
+    - Check for evidence of oil discoloration (milky appearance = water ingress)
+    - Check for oil leakage from seals and drain plugs
+
+Monthly Inspection:
+    - Perform oil analysis sample (30 mL sample from drain port)
+    - Submit to oil analysis laboratory for: viscosity (40°C), water content,
+      particle count, metals analysis (Fe, Cr, Cu, Al, Pb, Sn)
+    - Acceptance criteria for continued use: viscosity ±10% of nominal,
+      water <0.05%, ISO cleanliness 16/14/11 or better
+    - Check coupling condition: inspect for wear, cracking, and alignment
+
+Annual Inspection:
+    - Drain and flush bearing housing with flushing oil
+    - Refill with fresh ISO VG 68 oil
+    - If oil analysis shows bearing metal contamination (Fe >200 ppm or
+      Cu >100 ppm): replace bearings regardless of hours run
+    - Replace bearing housing lip seals and labyrinth isolators
+    - Check shaft runout; align pump/motor if runout >0.002 in
+
+================================================================================
+
+9. FAULT CODES AND CORRECTIVE ACTIONS
+================================================================================
+
+CODE | FAULT DESCRIPTION          | SEVERITY | RECOMMENDED ACTION                      | RESP TIME
+-----|----------------------------|----------|-----------------------------------------|----------
+P001 | Cavitation                 | HIGH     | Check NPSH, reduce flow                 | 4h
+P002 | Seal leakage               | MEDIUM   | Replace mechanical seal                 | 8h
+P003 | Bearing overheating        | HIGH     | Check lubrication, replace bearing      | 6h
+P004 | Impeller wear              | MEDIUM   | Measure clearance, replace if >0.020 in | 16h
+P005 | Vibration high             | HIGH     | Balance impeller, check alignment       | 8h
+P006 | Flow rate drop             | MEDIUM   | Check wear rings, clear blockage        | 12h
+P007 | Shaft seal leak            | HIGH     | Replace shaft seal                      | 8h
+P008 | Motor overload             | HIGH     | Check impeller for blockage             | 4h
+P009 | Suction strainer blocked   | MEDIUM   | Clean strainer                          | 2h
+P010 | Discharge pressure low     | MEDIUM   | Check impeller, wear rings              | 8h
+P011 | Oil contamination          | HIGH     | Flush and replace oil, find source      | 6h
+P012 | Coupling misalignment      | MEDIUM   | Realign pump/motor                      | 4h
+P013 | Shaft bow                  | HIGH     | Replace shaft                           | 24h
+P014 | Casing crack               | CRITICAL | Immediate shutdown, replace casing      | 2h
+P015 | Bearing housing crack      | CRITICAL | Immediate shutdown                      | 2h
+
+FAULT CODE DETAILS:
+
+P001 - Cavitation
+  Trigger: Operator reports cracking or popping noise. Vibration elevated
+  >3.0 mm/s RMS. Flow rate reduced >5% from design point at same speed.
+  Action: Calculate NPSHa. Check suction strainer pressure drop. Reduce flow
+  by partially closing discharge valve. If NPSHa < NPSHr + 0.5 ft margin,
+  halt pump and investigate suction system.
+
+P003 - Bearing Overheating
+  Trigger: Bearing housing temperature >85°C (measured by contact thermometer
+  or infrared pyrometer). Normal bearing temperature: 40-70°C above ambient.
+  Action: Check oil level immediately. If oil level is acceptable, take oil
+  sample for analysis. If bearing temperature continues to rise, shut down pump.
+  Replace bearing set and flush housing before restart.
+
+P014 - Casing Crack
+  Trigger: Visible crack in pump casing. Liquid leakage at casing joint.
+  Abnormal pressure reading or sudden drop in pump performance.
+  Action: Immediate controlled shutdown. Isolate pump from process using
+  block valves. Depressurize and drain casing. Do not attempt repair in situ;
+  replace casing with new or remanufactured unit. Investigate root cause
+  (pressure surge, waterhammer, thermal shock, or manufacturing defect).
+
+================================================================================
+10. QUICK REFERENCE SUMMARY
+================================================================================
+
+CAVITATION CAUSES AND REMEDIES SUMMARY:
+  Causes:
+    - Low Net Positive Suction Head (NPSH): NPSHa must exceed NPSHr by 0.5 ft minimum
+    - High fluid temperature reducing vapor pressure margin
+    - Excessive flow rate (operating far right of pump curve)
+    - Blocked suction piping causing pressure drop
+  Remedies:
+    - Increase suction pressure by raising suction vessel liquid level
+    - Reduce pump speed using variable frequency drive
+    - Check suction strainer for blockage; clean if differential pressure exceeds 2 psi
+    - Trim impeller to reduce NPSHr
+
+BEARING LIFE: 25,000 hours L10 at rated conditions
+WEAR RING: Replace when diametral clearance exceeds 0.020 inches
+
+================================================================================
+END OF DOCUMENT
+PM-CP500-001 Rev B
+================================================================================

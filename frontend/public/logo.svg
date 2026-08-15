@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <style>
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes ekg-run {
+        0%   { stroke-dashoffset:  44; opacity: 0; }
+        15%  { opacity: 1; }
+        85%  { opacity: 1; }
+        100% { stroke-dashoffset: -44; opacity: 0; }
+      }
+      @keyframes breathe {
+        0%, 100% { opacity: 0.35; }
+        50%      { opacity: 1;    }
+      }
+      /* Gear: slow clockwise rotation */
+      .pm-gear  { animation: spin      12s linear      infinite; transform-origin: 32px 32px; }
+      /* Radar sweep: fast rotation */
+      .pm-sweep { animation: spin       3s linear      infinite; transform-origin: 32px 32px; }
+      /* EKG pulse: draws itself, fades, repeats */
+      .pm-pulse { animation: ekg-run  2.4s ease-in-out infinite; }
+      /* Three status dots staggered 0.6 s apart */
+      .pm-d0    { animation: breathe  1.8s 0.0s ease-in-out infinite; }
+      .pm-d1    { animation: breathe  1.8s 0.6s ease-in-out infinite; }
+      .pm-d2    { animation: breathe  1.8s 1.2s ease-in-out infinite; }
+      /* Centre glow */
+      .pm-glow  { animation: breathe  1.5s 0.0s ease-in-out infinite; }
+    </style>
+
+    <!-- Dark radial background gradient -->
+    <radialGradient id="pm-rbg" cx="38%" cy="32%" r="60%">
+      <stop offset="0%"   stop-color="#13213d"/>
+      <stop offset="100%" stop-color="#04060e"/>
+    </radialGradient>
+
+    <!-- Blue → Cyan linear gradient (gear + arc) -->
+    <linearGradient id="pm-lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <!-- Soft glow filter (for arc + dots) -->
+    <filter id="pm-fg1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Strong glow filter (for centre dot) -->
+    <filter id="pm-fg2" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Clip the EKG line to the centre circle -->
+    <clipPath id="pm-cp">
+      <circle cx="32" cy="32" r="7.5"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── Background ── -->
+  <rect width="64" height="64" rx="13" fill="url(#pm-rbg)"/>
+
+  <!-- ── Static dashed orbit ring (r = 27) ── -->
+  <circle cx="32" cy="32" r="27"
+    stroke="#1d4ed8" stroke-width="0.6"
+    stroke-dasharray="2 5" opacity="0.5"/>
+
+  <!-- ── Radar sweep arc (rotates every 3 s) ── -->
+  <!--   Circumference ≈ 170; visible arc ≈ 34 units (≈ 1/5 circle)  -->
+  <g class="pm-sweep">
+    <circle cx="32" cy="32" r="27"
+      stroke="url(#pm-lg)" stroke-width="2.5"
+      stroke-dasharray="34 136"
+      stroke-linecap="round"
+      opacity="0.9" filter="url(#pm-fg1)"/>
+  </g>
+
+  <!-- ── 8-tooth star-gear (rotates every 12 s) ──
+       Computed as 16-point star polygon:
+         outer r = 21 (tooth tips)  at multiples of 45°
+         inner r = 16 (tooth roots) at multiples of 45° offset by 22.5°
+       Centre hole (r = 8) punched via evenodd fill rule.
+  ── -->
+  <g class="pm-gear">
+    <path fill-rule="evenodd"
+      d="M53,32
+         L46.8,38.1  L46.9,46.9  L38.1,46.8
+         L32,53
+         L25.9,46.8  L17.1,46.9  L17.2,38.1
+         L11,32
+         L17.2,25.9  L17.1,17.1  L25.9,17.2
+         L32,11
+         L38.1,17.2  L46.9,17.1  L46.8,25.9
+         Z
+         M40,32 A8,8 0 0,1 24,32 A8,8 0 0,1 40,32 Z"
+      fill="url(#pm-lg)" fill-opacity="0.13"
+      stroke="url(#pm-lg)" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ── Dark centre well (hides gear interior) ── -->
+  <circle cx="32" cy="32" r="8" fill="#04060e"/>
+
+  <!-- ── Animated EKG heartbeat line ──
+       Path extends beyond clip (x 22 → 42); only the part inside
+       the r = 7.5 circle (x 24.5 → 39.5) is visible.
+       The line "flows through" the centre with stroke-dashoffset animation.
+  ── -->
+  <path
+    d="M22,32 L26,32
+       L27.2,28.8
+       L29,35.5
+       L31,27.5
+       L33,36
+       L34.8,32
+       L42,32"
+    stroke="#22d3ee" stroke-width="1.4"
+    stroke-linecap="round" stroke-linejoin="round"
+    stroke-dasharray="44"
+    class="pm-pulse"
+    clip-path="url(#pm-cp)"/>
+
+  <!-- ── Centre glowing dot ── -->
+  <circle cx="32" cy="32" r="2.2"
+    fill="#93c5fd" class="pm-glow" filter="url(#pm-fg2)"/>
+
+  <!-- ── Status indicator dots on orbit ring (3 × 120° apart) ──
+       Positions computed for r = 27 from centre (32, 32):
+         0°:   (32, 5)
+         120°: (55.4, 45.5)
+         240°: ( 8.6, 45.5)
+  ── -->
+  <!-- Blue  — top (0°) -->
+  <circle cx="32" cy="5"    r="2" fill="#3b82f6" class="pm-d0" filter="url(#pm-fg1)"/>
+  <!-- Cyan  — lower-right (120°) -->
+  <circle cx="55" cy="45.5" r="2" fill="#22d3ee" class="pm-d1" filter="url(#pm-fg1)"/>
+  <!-- Indigo — lower-left (240°) -->
+  <circle cx="9"  cy="45.5" r="2" fill="#818cf8" class="pm-d2" filter="url(#pm-fg1)"/>
+</svg>

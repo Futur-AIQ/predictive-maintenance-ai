@@ -1,0 +1,356 @@
+RECIPROCATING COMPRESSOR MAINTENANCE MANUAL
+Two-Stage Double-Acting Reciprocating Compressor — Model RC-500 Series
+Document Number: CM-RC500-001
+Revision: Rev A
+Effective Date: 2023-06-01
+Classification: Technical Maintenance Reference
+
+================================================================================
+
+1. OVERVIEW
+================================================================================
+
+The RC-500 Series reciprocating compressor is a heavy-duty, two-stage,
+double-acting industrial compressor designed for continuous-duty gas compression
+in refinery, petrochemical, natural gas processing, and industrial utility
+applications. The compressor is designed and manufactured in compliance with
+API Standard 618 (Reciprocating Compressors for Petroleum, Chemical, and Gas
+Industry Services), 5th Edition.
+
+Compressor Designation:     RC-500 Series
+Compressor Type:            Two-stage, double-acting, horizontal balanced-opposed
+Driver Power:               500 HP (373 kW) at 1,200 RPM
+Rated Capacity:             1,000 CFM (28.3 m³/min) at 250 PSIG discharge
+Inlet Conditions:           14.7 PSIA, 60°F (15.6°C) gas at standard conditions
+Stage 1 Suction Pressure:   14.7 PSIA (atmospheric)
+Stage 1 Discharge Pressure: 62 PSIG (interstage)
+Stage 2 Suction Pressure:   58 PSIG (after intercooler)
+Stage 2 Discharge Pressure: 250 PSIG
+Compression Ratio (Stage 1): 5.2:1
+Compression Ratio (Stage 2): 4.9:1
+Interstage Temperature:     320°F (160°C) maximum
+Final Discharge Temperature: 300°F (149°C) maximum
+Frame Size:                 RC-500 (medium frame)
+Stroke:                     8.0 in (203 mm)
+Speed Range:                800 to 1,200 RPM
+Cooling Method:             Water-cooled cylinders and intercooler
+Design Gas:                 Air (standard); process gas variants available
+Lubrication:                Force-feed splash lubrication system (frame)
+                            Cylinder lubrication: Divider block force-feed
+
+The balanced-opposed configuration positions cylinders on opposite sides of
+the crankshaft, minimizing unbalanced inertia forces and reducing frame vibration.
+This design is preferred for API 618 applications requiring long, trouble-free
+service life with minimal foundation loading.
+
+================================================================================
+
+2. COMPONENTS
+================================================================================
+
+2.1 Cylinder Assemblies (2 Stages)
+    - Stage 1 cylinder bore: 12.0 in (304.8 mm)
+    - Stage 2 cylinder bore: 7.5 in (190.5 mm)
+    - Cylinder material: Cast iron (stage 1); ductile iron (stage 2)
+    - Cylinder liner: Replaceable cast iron liner in both stages
+    - Cylinder cooling: Water jacket with inlet/outlet temperature monitoring
+    - Cylinder cooling water flow rate: 15 GPM minimum per cylinder
+    - Valve ports: 2 suction, 2 discharge per cylinder end (double-acting)
+    - Cylinder lubrication: Divider-block injector, 10 injection points
+
+2.2 Pistons and Rings
+    - Piston material: Cast iron (stage 1); steel (stage 2)
+    - Piston rings: PTFE-filled (15% glass fiber) for oil-free sealing
+    - Number of piston rings: 4 per piston end (compression rings)
+    - Rider rings: 2 per piston (support rings, PTFE)
+    - Maximum allowable ring gap (end gap): 0.018 in (0.46 mm)
+    - New ring end gap: 0.006 to 0.010 in
+    - Maximum allowable blowby: 5% of theoretical cylinder capacity
+    - Piston rod: Alloy steel, chrome-plated sealing surface
+    - Piston rod diameter: 3.0 in (Stage 1), 2.5 in (Stage 2)
+    - Rod packing: PTFE chevron packing, 5 rings per stuffing box
+
+2.3 Connecting Rods
+    - Material: Forged alloy steel AISI 4340
+    - Big-end bearing: Insert-type, babbitt-lined (tin-based white metal)
+    - Small-end bearing: Bronze bushing
+    - Connecting rod bolt torque: 950 ft-lb (Stage 1), 780 ft-lb (Stage 2)
+    - Bearing clearance (new): 0.003-0.005 in
+    - Maximum allowable bearing clearance: 0.010 in before replacement
+
+2.4 Crankshaft
+    - Material: Forged alloy steel, ASTM A668 Class D
+    - Number of throws: 4 (2 per stage, horizontally opposed)
+    - Main bearing journals: 5 (three main, two outboard)
+    - Main bearing material: Babbitt-lined insert bearings
+    - Crank pin journal diameter: 5.0 in (Stage 1), 4.5 in (Stage 2)
+    - Main journal diameter: 5.5 in
+    - Maximum journal taper: 0.001 in per inch of length
+    - Maximum journal out-of-round: 0.001 in
+    - Crankshaft end float: 0.008 to 0.014 in
+
+2.5 Crossheads
+    - Material: Cast iron with babbitt-lined shoes
+    - Crosshead pin: Alloy steel, induction hardened
+    - Crosshead clearance (top/bottom): 0.008-0.012 in
+    - Maximum allowable clearance: 0.020 in
+    - Crosshead guide: Integral with frame, water-cooled
+    - Lubrication: Pressure-fed through crosshead pin
+
+2.6 Valve Assemblies (Plate Valves)
+    - Type: Concentric ring plate valve (suction and discharge)
+    - Valve material: Stainless steel 17-4PH plate; PEEK guard rings
+    - Valve springs: Stainless steel 316L
+    - Lift (valve travel): 0.060 in (Stage 1), 0.050 in (Stage 2)
+    - Number of suction valves: 4 per cylinder (2 per end)
+    - Number of discharge valves: 4 per cylinder (2 per end)
+    - Valve unloaders: Finger-type pneumatic unloaders on suction valves
+    - Seat flatness tolerance: Maximum 0.002 in across full seat surface
+
+2.7 Intercooler
+    - Type: Shell-and-tube heat exchanger, fixed tube sheet
+    - Shell material: Carbon steel ASME SA-516-70
+    - Tube material: Admiralty brass (70% Cu, 29% Zn, 1% Sn)
+    - Number of tubes: 96 (3/4 in OD, 16 BWG wall)
+    - Tube length: 72 in (1,830 mm)
+    - Cooling water side: Shell side (2-pass)
+    - Gas side: Tube side (1-pass)
+    - Design pressure (gas side): 100 PSIG
+    - Design pressure (water side): 150 PSIG
+    - Cooling water flow: 30 GPM at 85°F inlet temperature
+    - Design approach temperature: 20°F (interstage gas to cooling water)
+    - Maximum pressure drop (gas side, clean): 5 psi
+
+2.8 Frame and Crankcase
+    - Material: Grey cast iron, stress-relieved
+    - Bedplate: Fabricated steel, grouted to concrete foundation
+    - Foundation bolts: 1-1/4 in diameter, epoxy grouted
+    - Oil sump capacity: 25 gallons (94.6 liters)
+    - Oil pump: Gear-type, engine-driven, 10 GPM capacity
+    - Oil filtration: Full-flow spin-on filter, 25-micron nominal
+
+================================================================================
+
+3. VALVE MAINTENANCE
+================================================================================
+
+Valve condition is the most critical maintenance item on a reciprocating
+compressor. Faulty valves cause inefficiency, overheating, and potential
+compressor failure if not addressed promptly.
+
+Inspection Interval: Every 4,000 operating hours (approximately every 6 months
+at continuous duty). Valves operating on hydrogen or other light gases should
+be inspected every 2,000 hours.
+
+Inspection Procedure:
+  1. Depressurize and isolate compressor. Allow cylinders to cool below 120°F.
+  2. Remove valve covers and withdraw valve assemblies using valve puller tool.
+  3. Disassemble each valve into plate(s), guard, springs, and seat.
+  4. Clean all components with approved solvent (MEK or isopropyl alcohol).
+  5. Inspect valve plate for cracks, warping, and wear. Measure plate thickness;
+     replace if worn more than 20% of original thickness (nominal: 0.090 in).
+  6. Check valve springs for set and corrosion; replace if free length is <90%
+     of new length (nominal: 0.75 in free length).
+  7. Check seat flatness using precision optical flat and monochromatic light.
+     Maximum allowable deviation: 0.002 in across full seat contact surface.
+  8. Lap seat if deviation is 0.001-0.002 in; replace seat if >0.002 in.
+  9. Reassemble valve and perform hydrostatic leak test at 1.5x working pressure.
+  10. Install valve with new O-ring and torque valve cap bolts to spec (85 ft-lb).
+
+================================================================================
+
+4. PISTON RING REPLACEMENT
+================================================================================
+
+Inspection Interval: Every 8,000 operating hours or annually, whichever occurs
+first. Early replacement is indicated by excessive blowby (>5%) or gas leakage
+detected by elevated interstage temperature.
+
+Ring Condition Criteria:
+  - Measure ring end gap using feeler gauge inserted into cylinder bore
+  - New ring end gap: 0.006 to 0.010 in
+  - Replace if end gap exceeds 0.018 in (maximum allowable)
+  - Check ring groove clearance (side clearance): maximum 0.004 in
+  - Inspect ring seating surface for scoring and glazing
+
+Replacement Procedure:
+  Step 1: Depressurize and isolate cylinder. Drain cylinder lubrication lines.
+  Step 2: Remove cylinder head and piston rod packing gland.
+  Step 3: Withdraw piston assembly from cylinder using piston removal sling.
+  Step 4: Remove worn rings using ring expander tool. Do not use screwdrivers
+          or sharp tools that may damage piston grooves.
+  Step 5: Clean piston grooves with solvent. Inspect grooves for wear and
+          deformation. Measure groove width; replace piston if groove width
+          exceeds new ring width by more than 0.003 in.
+  Step 6: Install new rings with gaps staggered at 120° intervals around the
+          piston circumference to minimize blowby.
+  Step 7: Check ring-to-groove clearance after installation (0.001-0.003 in).
+  Step 8: Re-install piston with new O-rings and gaskets.
+  Step 9: Perform leak check. Monitor interstage temperature for 24 hours.
+
+================================================================================
+
+5. INTERCOOLER CLEANING
+================================================================================
+
+Annual tube bundle cleaning is required to maintain thermal performance and
+prevent fouling-induced pressure drop increases.
+
+Cleaning Procedure:
+  1. Isolate cooling water and gas sides using block valves.
+  2. Drain both sides and purge gas side with nitrogen.
+  3. Remove channel covers on both ends of the heat exchanger.
+  4. Inspect tube ends for pitting, erosion, and fouling deposits.
+  5. Prepare 10% citric acid solution (100 g citric acid per 1,000 mL water).
+  6. Circulate citric acid solution through tubes at 2 GPM for 4 hours at 120°F.
+  7. Flush tubes with clean fresh water until pH of effluent is neutral (pH 7).
+  8. Inspect individual tubes with tube brush and borescope.
+  9. Plug any tubes showing through-wall pitting or leakage (max 10% plugged).
+  10. Reinstall channel covers with new gaskets. Hydrostatically test at
+      1.5x design pressure before returning to service.
+
+Performance Acceptance:
+  Pressure drop (gas side) must not exceed 5 psi when operating at rated flow
+  and clean condition. Pressure drop >5 psi indicates fouling and requires
+  immediate cleaning. Pressure drop >8 psi indicates severe fouling and
+  possible tube blockage; inspect individual tubes.
+
+================================================================================
+
+6. PRESSURE SAFETY VALVES
+================================================================================
+
+PSV1 — Stage 1 Discharge Safety Valve
+  - Set pressure: 175 PSIG (1.21 MPa gauge)
+  - Full open pressure: 193 PSIG (set + 10%)
+  - Reseat pressure: 166 PSIG (set - 5%)
+  - Orifice: 0.785 in² (D orifice)
+  - Body material: Cast iron; trim material 316 SS
+  - Test interval: Annually (or after any overpressure event)
+
+PSV2 — Stage 2 Discharge Safety Valve
+  - Set pressure: 275 PSIG (1.90 MPa gauge)
+  - Full open pressure: 303 PSIG (set + 10%)
+  - Reseat pressure: 261 PSIG (set - 5%)
+  - Orifice: 0.503 in² (C orifice)
+  - Body material: Cast iron; trim material 316 SS
+  - Test interval: Annually (or after any overpressure event)
+
+Testing Procedure:
+  Use calibrated test stand per API 527. Apply increasing test pressure until
+  valve opens. Verify full-open pressure is within +3% / -0% of set pressure.
+  Verify valve reseats cleanly without simmering. If valve fails to open within
+  +10% of set pressure, or fails to reseat tightly, remove from service and
+  refurbish or replace. Document test date and results; update valve tag.
+
+================================================================================
+
+7. LUBRICATION OIL ANALYSIS
+================================================================================
+
+Oil analysis is a critical condition monitoring tool for reciprocating compressors.
+Sample frequency: Every 1,000 operating hours (approximately every 6 weeks).
+
+Sampling Procedure:
+  - Take sample from running compressor at sampling port on main oil header
+  - Use clean sampling syringe; flush sampling port before taking sample
+  - Submit 100 mL sample to approved laboratory within 48 hours of sampling
+
+Acceptance Criteria:
+  Viscosity (at 40°C):     Acceptable range: ISO VG 68 ±10% (61.2-74.8 cSt)
+                            Out of spec indicates oil degradation or dilution
+  Water content:           Maximum 0.1% by weight (Karl Fischer method)
+                            Above 0.1% indicates cooling water in-leakage
+  Total Acid Number (TAN): Maximum 2.0 mg KOH/g (new oil: 0.5 mg KOH/g)
+  Particle count:          Maximum ISO 16/14/11 (per ISO 4406)
+  Iron (Fe):               < 100 ppm (crankshaft bearing wear indicator)
+  Copper (Cu):             < 50 ppm (crosshead pin bushing wear indicator)
+  Lead (Pb):               < 30 ppm (babbitt bearing wear indicator)
+  Silicon (Si):            < 10 ppm (airborne contamination / ingestion)
+
+Action on Out-of-Spec Results:
+  If any parameter exceeds maximum: drain oil, flush frame with flushing oil,
+  refill with fresh ISO VG 68 oil, and re-sample after 100 hours. If particle
+  count exceeds limit, inspect oil filter bypass valve and replace filter element.
+  If water content exceeds limit, inspect intercooler for tube-to-shell leakage.
+
+================================================================================
+
+8. FAULT CODES AND CORRECTIVE ACTIONS
+================================================================================
+
+CODE | FAULT DESCRIPTION           | SEVERITY | RECOMMENDED ACTION                        | RESP TIME
+-----|-----------------------------|----------|-------------------------------------------|----------
+C001 | Valve failure - suction     | HIGH     | Replace suction valve plates              | 8h
+C002 | Valve failure - discharge   | HIGH     | Replace discharge valve plates            | 8h
+C003 | Piston ring wear            | MEDIUM   | Replace piston rings                      | 16h
+C004 | Cylinder overheating        | CRITICAL | Reduce load, check cooling water          | 2h
+C005 | Intercooler fouling         | MEDIUM   | Clean tube bundle                         | 12h
+C006 | Oil pressure low            | CRITICAL | Check oil pump, stop unit                 | 1h
+C007 | High vibration              | HIGH     | Check balance, bearing wear               | 8h
+C008 | Crosshead wear              | HIGH     | Replace crosshead shoes                   | 24h
+C009 | Rod packing leak            | MEDIUM   | Replace rod packing                       | 8h
+C010 | Crankshaft bearing failure  | CRITICAL | Immediate shutdown                        | 2h
+C011 | High discharge temperature  | HIGH     | Check cooler, reduce compression ratio    | 6h
+C012 | Low inlet pressure          | MEDIUM   | Check inlet filter, suction line          | 4h
+C013 | PSV lift                    | HIGH     | Reduce pressure, inspect system           | 4h
+C014 | Intercooler leak            | HIGH     | Repair tube bundle                        | 8h
+C015 | Lube oil contamination      | HIGH     | Flush system, find contamination source   | 8h
+
+FAULT CODE DETAILS:
+
+C001 / C002 - Valve Failure (Suction / Discharge)
+  Trigger: Elevated discharge temperature (>10% above normal), reduced capacity,
+  abnormal valve temperature on cylinder temperature monitoring, or audible
+  valve clatter.
+  Diagnosis: Thermal imaging of valve covers; discharge temperature analysis;
+  cylinder pressure-volume (PV) card analysis using compressor analyzer.
+  Action: Shutdown affected stage. Remove and inspect all valve assemblies.
+  Replace plates and springs. Check seat for scoring. Re-test before restart.
+
+C004 - Cylinder Overheating
+  Trigger: Cylinder jacket water outlet temperature >180°F (82°C), or
+  discharge temperature >320°F (160°C) for Stage 1, or >300°F (149°C) for Stage 2.
+  Causes: Loss of cooling water flow, valve failure causing high compression ratio,
+  piston ring failure causing gas blowby recirculation.
+  Action: Reduce compressor load to minimum. Verify cooling water flow rate
+  (minimum 15 GPM per cylinder). Inspect for valve failure and ring condition.
+  Do not restart until temperature drops below 150°F (66°C).
+
+C006 - Oil Pressure Low
+  Trigger: Frame oil pressure drops below 25 PSIG (normal: 45-60 PSIG).
+  CRITICAL — Continued operation with low oil pressure will result in
+  catastrophic crankshaft bearing failure within minutes.
+  Action: Immediate shutdown (ESD system will activate automatically).
+  Investigate: check oil level (minimum 1/2 sight glass), check oil pump
+  drive coupling, check pressure relief valve, check oil filter differential
+  pressure. Do not restart until cause is identified and corrected.
+
+C010 - Crankshaft Bearing Failure
+  Trigger: High vibration on frame (>10 mm/s RMS), metal particles in oil
+  (Fe >500 ppm), audible knock from crankcase, or bearing temperature alarm.
+  Action: Immediate emergency shutdown. Do not restart. Open crankcase doors
+  and inspect all main and rod bearings. Measure bearing clearances. Replace
+  all bearings showing signs of wiping, scoring, or seizure. Inspect crankshaft
+  journals for damage; re-grind or replace crankshaft as required.
+
+================================================================================
+9. QUICK REFERENCE SUMMARY
+================================================================================
+
+PISTON RING REPLACEMENT SUMMARY:
+  Inspection interval: Every 8,000 operating hours or annually (whichever first)
+  Replace piston rings when any of:
+    - Ring end gap exceeds 0.018 inches (max allowable end gap)
+    - Blowby exceeds 5% of theoretical cylinder capacity
+    - Ring groove side clearance exceeds 0.004 inches
+  New ring end gap specification: 0.006 to 0.010 inches
+
+VALVE INSPECTION: Every 4,000 operating hours
+OIL ANALYSIS: Every 1,000 operating hours
+INTERCOOLER: Annual cleaning; max pressure drop 5 psi at rated flow
+
+================================================================================
+END OF DOCUMENT
+CM-RC500-001 Rev A
+================================================================================
