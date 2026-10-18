@@ -84,11 +84,11 @@ export const workOrderApi = {
   }): Promise<WorkOrderResponse[]> =>
     api.get("/api/workorders/", { params }).then((r) => extractItems<WorkOrderResponse>(r.data)),
 
-  updateStatus: (id: number, data: WorkOrderStatusUpdate): Promise<WorkOrderResponse> =>
-    api.patch(`/api/workorders/${id}/status`, data).then((r) => r.data),
+  updateStatus: (workOrderId: string, data: WorkOrderStatusUpdate): Promise<WorkOrderResponse> =>
+    api.patch(`/api/workorders/${workOrderId}/status`, data).then((r) => r.data),
 
-  delete: (id: number): Promise<void> =>
-    api.delete(`/api/workorders/${id}`).then((r) => r.data),
+  delete: (workOrderId: string): Promise<void> =>
+    api.delete(`/api/workorders/${workOrderId}`).then((r) => r.data),
 }
 
 export const evaluationApi = {

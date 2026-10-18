@@ -1,5 +1,5 @@
 from datetime import datetime, timezone
-from typing import Annotated
+from typing import Annotated, List
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
@@ -71,6 +71,14 @@ def register(
     db.commit()
     db.refresh(user)
     return UserResponse.model_validate(user)
+
+
+@router.get("/users", response_model=List[UserResponse])
+def list_users(
+    _admin: Annotated[User, Depends(require_admin)],
+    db: Session = Depends(get_db),
+):
+    return [UserResponse.model_validate(u) for u in db.query(User).order_by(User.id).all()]
 
 
 @router.post("/refresh", response_model=AccessToken)

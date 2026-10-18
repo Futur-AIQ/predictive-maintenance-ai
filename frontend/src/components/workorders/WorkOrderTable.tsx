@@ -35,10 +35,11 @@ export default function WorkOrderTable({ workOrders, onUpdate, onDelete }: WorkO
   const isAdmin = session?.user?.role === "admin"
   const [updatingId, setUpdatingId] = useState<number | null>(null)
 
-  const handleStatusChange = async (id: number, status: WorkOrderStatus) => {
-    setUpdatingId(id)
+  // The API addresses work orders by their UUID (work_order_id); the numeric id is only used for local state.
+  const handleStatusChange = async (wo: WorkOrderResponse, status: WorkOrderStatus) => {
+    setUpdatingId(wo.id)
     try {
-      const updated = await workOrderApi.updateStatus(id, { status })
+      const updated = await workOrderApi.updateStatus(wo.work_order_id, { status })
       onUpdate(updated)
       toast.success("Status updated")
     } catch {
@@ -48,11 +49,11 @@ export default function WorkOrderTable({ workOrders, onUpdate, onDelete }: WorkO
     }
   }
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (wo: WorkOrderResponse) => {
     if (!confirm("Delete this work order?")) return
     try {
-      await workOrderApi.delete(id)
-      onDelete(id)
+      await workOrderApi.delete(wo.work_order_id)
+      onDelete(wo.id)
       toast.success("Work order deleted")
     } catch {
       toast.error("Failed to delete work order")
@@ -96,7 +97,7 @@ export default function WorkOrderTable({ workOrders, onUpdate, onDelete }: WorkO
                 <TableCell>
                   <Select
                     value={wo.status}
-                    onValueChange={(v) => handleStatusChange(wo.id, v as WorkOrderStatus)}
+                    onValueChange={(v) => handleStatusChange(wo, v as WorkOrderStatus)}
                     disabled={updatingId === wo.id}
                   >
                     <SelectTrigger className="h-7 text-xs w-32 border-0 p-0">
@@ -121,7 +122,7 @@ export default function WorkOrderTable({ workOrders, onUpdate, onDelete }: WorkO
                       variant="ghost"
                       size="icon"
                       className="h-7 w-7 text-destructive hover:text-destructive"
-                      onClick={() => handleDelete(wo.id)}
+                      onClick={() => handleDelete(wo)}
                     >
                       <Trash2 className="h-3.5 w-3.5" />
                     </Button>

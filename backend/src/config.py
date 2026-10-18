@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 30
     refresh_token_expire_days: int = 7
 
+    # Seeded user passwords — override in any public deployment, since the
+    # defaults are published in the README
+    admin_password: str = "Admin@123"
+    engineer_password: str = "Engineer@123"
+
     # Database
     database_url: str = "sqlite:///./data/pm_system.db"
 
@@ -30,6 +35,15 @@ class Settings(BaseSettings):
 
     # Embeddings — local HuggingFace model, no external server required
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    # "sentence-transformers" (torch) or "onnx" (same MiniLM vectors, no torch;
+    # ~190 MB less RAM). The index must be built with the same backend it is
+    # queried with.
+    embedding_backend: str = "sentence-transformers"
+    # Where the ONNX model is downloaded; empty = Chroma's default (~/.cache/chroma)
+    onnx_model_dir: str = ""
+
+    # Cross-encoder reranking — disable on low-memory hosts (e.g. 512 MB)
+    enable_reranker: bool = True
 
     # LLM — OpenRouter (primary)
     openrouter_api_key: str = ""

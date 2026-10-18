@@ -62,13 +62,13 @@ def _seed_users():
         seed_users = [
             {
                 "email": "admin@pm-system.com",
-                "hashed_password": hash_password("Admin@123"),
+                "hashed_password": hash_password(settings.admin_password),
                 "full_name": "System Admin",
                 "role": UserRole.admin,
             },
             {
                 "email": "engineer@pm-system.com",
-                "hashed_password": hash_password("Engineer@123"),
+                "hashed_password": hash_password(settings.engineer_password),
                 "full_name": "John Engineer",
                 "role": UserRole.engineer,
             },

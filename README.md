@@ -119,6 +119,35 @@ docker-compose up --build
 
 ---
 
+## Deployment (Render + Vercel)
+
+The backend deploys to Render from `render.yaml`; the frontend deploys to Vercel from `frontend/`.
+
+### 1. Backend on Render
+
+1. In Render: **New → Blueprint**, pick this repo. Render reads `render.yaml`.
+2. Fill in the prompted secrets: `ADMIN_PASSWORD`, `ENGINEER_PASSWORD`, `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`, and `CORS_ORIGINS` (use `http://localhost:3000` for now; set the Vercel URL in step 3). `SECRET_KEY` is generated for you.
+3. Wait for the build (installs CPU-only torch, builds the search index) and note the URL, e.g. `https://predictive-maintenance-api.onrender.com`.
+
+The blueprint targets the **free plan** (512 MB RAM, no disk). To fit, it uses ONNX embeddings and turns off cross-encoder reranking. On the free plan:
+- SQLite data (work orders, diagnostic history, users created in the app) resets on every deploy, restart and idle spin-down. The two seeded users are recreated from `ADMIN_PASSWORD` / `ENGINEER_PASSWORD`.
+- The service sleeps after 15 idle minutes; the first request then takes about a minute, and everyone is signed out.
+
+### 2. Frontend on Vercel
+
+1. **Add New → Project**, pick this repo, set **Root Directory** to `frontend`.
+2. Environment variables:
+   - `NEXT_PUBLIC_API_URL` = the Render URL (https, no trailing slash). Baked in at build time, so redeploy after changing it.
+   - `NEXTAUTH_SECRET` = output of `openssl rand -base64 32`
+   - `NEXTAUTH_URL` = `https://<your-project>.vercel.app`
+3. Deploy and note the production URL.
+
+### 3. Connect them
+
+In Render, set `CORS_ORIGINS` to the exact Vercel production URL (e.g. `https://your-project.vercel.app`, no trailing slash) and save; the service redeploys. Vercel preview URLs are not allowed by CORS.
+
+---
+
 ## Environment Variables
 
 ### Backend (`backend/.env`)
@@ -128,10 +157,16 @@ docker-compose up --build
 SECRET_KEY=<random 32+ char string>
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 REFRESH_TOKEN_EXPIRE_DAYS=7
+ADMIN_PASSWORD=                     # seeded admin password (default Admin@123)
+ENGINEER_PASSWORD=                  # seeded engineer password (default Engineer@123)
 
 # Database & storage
 DATABASE_URL=sqlite:///./data/pm_system.db
 CHROMA_PERSIST_DIR=./chroma_db
+
+# Retrieval
+EMBEDDING_BACKEND=sentence-transformers   # or "onnx": same vectors, no torch, less RAM
+ENABLE_RERANKER=true                      # cross-encoder reranking
 
 # LLM — priority: OpenRouter → Anthropic → OpenAI (at least one required)
 OPENROUTER_API_KEY=
@@ -159,7 +194,7 @@ NEXTAUTH_URL=http://localhost:3000
 
 ## Default Credentials
 
-Seeded automatically on first startup.
+Seeded automatically on first startup. These defaults are for local development only; any public deployment must set `ADMIN_PASSWORD` and `ENGINEER_PASSWORD`.
 
 | Role     | Email                  | Password     |
 |----------|------------------------|--------------|

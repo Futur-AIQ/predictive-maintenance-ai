@@ -133,8 +133,17 @@ POST /api/diagnostic/run
 | `DATABASE_URL` | SQLite path (default: sqlite:///./data/pm_system.db) |
 | `CHROMA_PERSIST_DIR` | ChromaDB storage path (default: ./chroma_db) |
 | `CORS_ORIGINS` | Allowed CORS origins (default: http://localhost:3000) |
+| `ADMIN_PASSWORD` / `ENGINEER_PASSWORD` | Seeded user passwords (defaults below; required on public deploys) |
+| `EMBEDDING_BACKEND` | `sentence-transformers` (default) or `onnx` (same MiniLM vectors, no torch) |
+| `ENABLE_RERANKER` | Cross-encoder reranking (default true) |
 
-### Default Credentials (seeded on first startup)
+### Deployment
+
+- Backend → Render via `render.yaml` (free plan: ONNX embeddings, reranker off, index built in `scripts/prebuild.py` during the build because bulk embedding at runtime exceeds 512 MB). Free plan has no disk, so SQLite resets on restart.
+- Frontend → Vercel with Root Directory `frontend`; needs `NEXT_PUBLIC_API_URL` (build-time), `NEXTAUTH_SECRET`, `NEXTAUTH_URL`.
+- Render `CORS_ORIGINS` must be the exact Vercel production URL. See README → Deployment.
+
+### Default Credentials (seeded on first startup; local dev only)
 
 | Role     | Email                  | Password     |
 |----------|------------------------|--------------|

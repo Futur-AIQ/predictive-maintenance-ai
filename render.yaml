@@ -1,0 +1,66 @@
+# Render Blueprint — backend API (FastAPI) on the free plan.
+# Frontend is deployed separately on Vercel (see README → Deployment).
+#
+# Free-plan constraints this file works around:
+#   - 512 MB RAM: ONNX embeddings (same MiniLM vectors, torch never loaded),
+#     cross-encoder reranking disabled, CPU-only torch wheel to keep the build small
+#   - 0.1 CPU: search index + models are built during the build step; bulk
+#     embedding at runtime would also exceed 512 MB, so it must happen here
+#   - No persistent disk: SQLite data (work orders, sessions, extra users)
+#     resets on every deploy, restart, and idle spin-down
+services:
+  - type: web
+    name: predictive-maintenance-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: >-
+      pip install torch --index-url https://download.pytorch.org/whl/cpu &&
+      pip install -r requirements.txt &&
+      python scripts/prebuild.py
+    startCommand: uvicorn src.api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.16
+
+      # Security — the repo is public, so never rely on the defaults
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ENGINEER_PASSWORD
+        sync: false
+
+      # LLM (OpenRouter primary). ANTHROPIC_API_KEY / OPENAI_API_KEY can be
+      # added in the dashboard instead if you use those providers.
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        sync: false
+
+      # Exact Vercel production URL, e.g. https://your-app.vercel.app (no trailing slash)
+      - key: CORS_ORIGINS
+        sync: false
+
+      # Memory / runtime tuning for the free plan
+      - key: EMBEDDING_BACKEND
+        value: onnx
+      - key: ENABLE_RERANKER
+        value: "false"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"
+      - key: ANONYMIZED_TELEMETRY
+        value: "False"
+      # Model caches live inside the project dir so the models downloaded
+      # during the build are present at runtime
+      - key: ONNX_MODEL_DIR
+        value: /opt/render/project/src/backend/.model_cache/onnx
+      - key: HF_HOME
+        value: /opt/render/project/src/backend/.model_cache/hf
+      # Stable simulated pump/compressor values across restarts
+      - key: PYTHONHASHSEED
+        value: "0"

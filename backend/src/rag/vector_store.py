@@ -1,9 +1,11 @@
+from pathlib import Path
 from typing import Any, List
 
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from langchain.schema import Document
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_core.embeddings import Embeddings
 from loguru import logger
 
 try:
@@ -34,6 +36,30 @@ def _sanitize_metadata(metadata: dict) -> dict:
             sanitized[key] = str(value)
     return sanitized
 
+
+class OnnxMiniLMEmbeddings(Embeddings):
+    """
+    all-MiniLM-L6-v2 run through ONNX Runtime (Chroma's bundled export).
+
+    Produces the same vectors as the sentence-transformers model but never
+    imports torch, which saves roughly 190 MB of RAM — enough to fit a
+    512 MB host. Only this one model is available in this backend.
+    """
+
+    def __init__(self, cache_dir: str = "") -> None:
+        from chromadb.utils.embedding_functions.onnx_mini_lm_l6_v2 import ONNXMiniLM_L6_V2
+
+        self._fn = ONNXMiniLM_L6_V2(preferred_providers=["CPUExecutionProvider"])
+        if cache_dir:
+            self._fn.DOWNLOAD_PATH = Path(cache_dir) / ONNXMiniLM_L6_V2.MODEL_NAME
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        return [[float(x) for x in vec] for vec in self._fn(texts)]
+
+    def embed_query(self, text: str) -> List[float]:
+        return self.embed_documents([text])[0]
+
+
 # ---------------------------------------------------------------------------
 # Collection names – used as constants throughout the module
 # ---------------------------------------------------------------------------
@@ -55,7 +81,7 @@ class VectorStoreManager:
 
     def __init__(self) -> None:
         self._client: chromadb.PersistentClient | None = None
-        self._embeddings: HuggingFaceEmbeddings | None = None
+        self._embeddings: Embeddings | None = None
         # LangChain Chroma wrappers keyed by collection name
         self._stores: dict[str, Chroma] = {}
 
@@ -80,17 +106,27 @@ class VectorStoreManager:
             settings=ChromaSettings(anonymized_telemetry=False),
         )
 
-        logger.info(
-            f"Loading HuggingFace embeddings ({settings.embedding_model}) …"
-        )
-        self._embeddings = HuggingFaceEmbeddings(
-            model_name=settings.embedding_model,
-        )
+        if settings.embedding_backend == "onnx":
+            logger.info("Loading ONNX embeddings (all-MiniLM-L6-v2) …")
+            self._embeddings = OnnxMiniLMEmbeddings(settings.onnx_model_dir)
+        else:
+            logger.info(
+                f"Loading HuggingFace embeddings ({settings.embedding_model}) …"
+            )
+            self._embeddings = HuggingFaceEmbeddings(
+                model_name=settings.embedding_model,
+            )
         logger.info("VectorStoreManager initialised successfully")
 
     # ------------------------------------------------------------------
     # Internal helpers
     # ------------------------------------------------------------------
+
+    @property
+    def embeddings(self) -> Embeddings:
+        """The shared embedding model, so callers don't load a second copy."""
+        self._ensure_initialised()
+        return self._embeddings  # type: ignore[return-value]
 
     def _ensure_initialised(self) -> None:
         if self._client is None or self._embeddings is None:

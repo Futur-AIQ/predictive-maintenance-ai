@@ -64,6 +64,25 @@ def test_register_forbidden_as_engineer(client, engineer_token):
     assert resp.status_code == 403
 
 
+def test_list_users_as_admin(client, admin_token, engineer_user):
+    resp = client.get(
+        "/api/auth/users",
+        headers={"Authorization": f"Bearer {admin_token}"},
+    )
+    assert resp.status_code == 200
+    emails = [u["email"] for u in resp.json()]
+    assert engineer_user.email in emails
+    assert all("hashed_password" not in u for u in resp.json())
+
+
+def test_list_users_forbidden_as_engineer(client, engineer_token):
+    resp = client.get(
+        "/api/auth/users",
+        headers={"Authorization": f"Bearer {engineer_token}"},
+    )
+    assert resp.status_code == 403
+
+
 def test_refresh_token(client, admin_user):
     login_resp = client.post(
         "/api/auth/login",

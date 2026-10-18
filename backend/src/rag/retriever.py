@@ -5,6 +5,7 @@ from langchain.schema import Document
 from rank_bm25 import BM25Okapi
 from loguru import logger
 
+from src.config import settings
 from src.rag.vector_store import vector_store
 
 # ---------------------------------------------------------------------------
@@ -46,6 +47,8 @@ def _get_cross_encoder():
     The result is cached globally after the first successful load.
     """
     global _cross_encoder
+    if not settings.enable_reranker:
+        return None
     if _cross_encoder is None:
         try:
             from sentence_transformers import CrossEncoder

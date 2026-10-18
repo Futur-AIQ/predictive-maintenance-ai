@@ -222,9 +222,10 @@ def run_evaluation(processed_data_dir: str = "./data/processed") -> dict:
             "ground_truth": [s["ground_truth"] for s in _EVAL_QUESTIONS],
         }
         dataset = Dataset.from_dict(data)
-        from langchain_community.embeddings import HuggingFaceEmbeddings
         from ragas.run_config import RunConfig
-        from src.config import settings
+        from src.rag.vector_store import vector_store
+
+        vector_store.initialize()
 
         judge_llm = _get_eval_llm()
         if judge_llm is None:
@@ -234,7 +235,7 @@ def run_evaluation(processed_data_dir: str = "./data/processed") -> dict:
             dataset,
             metrics=[faithfulness, answer_relevancy, context_precision, context_recall],
             llm=judge_llm,
-            embeddings=HuggingFaceEmbeddings(model_name=settings.embedding_model),
+            embeddings=vector_store.embeddings,
             run_config=RunConfig(max_workers=1, timeout=180),
         )
         def _nanmean(vals: list) -> float:
