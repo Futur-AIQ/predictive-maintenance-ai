@@ -50,7 +50,7 @@ npm run build
 npm run lint
 ```
 
-Requires `NEXT_PUBLIC_API_URL` pointing to the backend (default: `http://localhost:8000`).
+Requires `NEXT_API_URL` pointing to the backend (default: `http://localhost:8000`).
 NextAuth requires `NEXTAUTH_SECRET` and `NEXTAUTH_URL=http://localhost:3000`.
 
 ### Docker (full stack)
@@ -117,7 +117,7 @@ POST /api/diagnostic/run
 **Frontend** (`frontend/src/`):
 - `app/` — Next.js App Router; `(auth)/login` and `(dashboard)/` route groups
 - `components/` — domain components (diagnostic, equipment, workorders, evaluation) + `ui/` (shadcn)
-- `lib/api.ts` — Axios instance with Bearer token injection; `NEXT_PUBLIC_API_URL` configures base URL
+- `lib/api.ts` — Axios instance with Bearer token injection; `NEXT_API_URL` configures base URL
 - `store/` — Zustand state management
 - Auth handled via NextAuth.js 5 (`app/api/auth/[...nextauth]/`)
 
@@ -140,8 +140,8 @@ POST /api/diagnostic/run
 ### Deployment
 
 - Backend → Render via `render.yaml` (free plan: ONNX embeddings, reranker off, index built in `scripts/prebuild.py` during the build because bulk embedding at runtime exceeds 512 MB). Free plan has no disk, so SQLite resets on restart.
-- Frontend → Vercel with Root Directory `frontend`; needs `NEXT_PUBLIC_API_URL` (build-time), `NEXTAUTH_SECRET`, `NEXTAUTH_URL`.
-- Render `CORS_ORIGINS` must be the exact Vercel production URL. See README → Deployment.
+- Frontend → Vercel with Root Directory `frontend`; needs `NEXT_API_URL` (build-time), `NEXTAUTH_SECRET`, `NEXTAUTH_URL`.
+- Render `CORS_ORIGINS` must be the exact Vercel production URL. Step-by-step guide: `DEPLOYMENT.md`.
 
 ### Default Credentials (seeded on first startup; local dev only)
 

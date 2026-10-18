@@ -1,5 +1,5 @@
 # Render Blueprint — backend API (FastAPI) on the free plan.
-# Frontend is deployed separately on Vercel (see README → Deployment).
+# Frontend is deployed separately on Vercel. Step-by-step guide: DEPLOYMENT.md
 #
 # Free-plan constraints this file works around:
 #   - 512 MB RAM: ONNX embeddings (same MiniLM vectors, torch never loaded),

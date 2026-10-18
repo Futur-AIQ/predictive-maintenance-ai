@@ -2,6 +2,8 @@
 
 A production-quality full-stack AI application for industrial equipment fault diagnosis using Hybrid RAG + LangGraph agentic workflows.
 
+> **Deploying?** Follow the step-by-step guide in [DEPLOYMENT.md](DEPLOYMENT.md) (backend on Render, frontend on Vercel).
+
 ## Overview
 
 The system diagnoses equipment faults by retrieving relevant technical documentation, running an LLM-powered analysis through a stateful multi-step agent, and automatically creating work orders for high-severity issues. Engineers interact through a modern dashboard; the backend handles all AI orchestration transparently.
@@ -121,7 +123,7 @@ docker-compose up --build
 
 ## Deployment (Render + Vercel)
 
-The backend deploys to Render from `render.yaml`; the frontend deploys to Vercel from `frontend/`.
+The backend deploys to Render from `render.yaml`; the frontend deploys to Vercel from `frontend/`. Below is the short version. **[DEPLOYMENT.md](DEPLOYMENT.md)** has every click, the checks to run after each step, and troubleshooting.
 
 ### 1. Backend on Render
 
@@ -137,7 +139,7 @@ The blueprint targets the **free plan** (512 MB RAM, no disk). To fit, it uses O
 
 1. **Add New → Project**, pick this repo, set **Root Directory** to `frontend`.
 2. Environment variables:
-   - `NEXT_PUBLIC_API_URL` = the Render URL (https, no trailing slash). Baked in at build time, so redeploy after changing it.
+   - `NEXT_API_URL` = the Render URL (https, no trailing slash). Baked in at build time, so redeploy after changing it.
    - `NEXTAUTH_SECRET` = output of `openssl rand -base64 32`
    - `NEXTAUTH_URL` = `https://<your-project>.vercel.app`
 3. Deploy and note the production URL.
@@ -185,7 +187,7 @@ CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
 ### Frontend (`frontend/.env.local`)
 
 ```bash
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_API_URL=http://localhost:8000
 NEXTAUTH_SECRET=<random string>    # generate with: openssl rand -base64 32
 NEXTAUTH_URL=http://localhost:3000
 ```

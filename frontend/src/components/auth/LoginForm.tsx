@@ -21,7 +21,7 @@ export default function LoginForm() {
 
   // Wake the backend while the user types — free-tier hosts sleep when idle
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/health`).catch(() => {})
+    fetch(`${process.env.NEXT_API_URL || "http://localhost:8000"}/api/health`).catch(() => {})
   }, [])
 
   const {
