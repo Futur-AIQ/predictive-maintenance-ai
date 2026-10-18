@@ -55,7 +55,7 @@ export default function LoginForm() {
       <CardHeader className="text-center space-y-3">
         <div className="flex justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Logo" className="w-12 h-12" />
+          <img src="/logo-full.png" alt="Hansa Technologies — Beyond Innovation" className="h-20 w-auto" />
         </div>
         <CardTitle className="text-2xl">Predictive Maintenance AI</CardTitle>
         <CardDescription>Sign in to monitor and maintain your equipment</CardDescription>

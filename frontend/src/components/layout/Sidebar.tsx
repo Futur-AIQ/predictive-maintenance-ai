@@ -53,7 +53,7 @@ export default function Sidebar() {
       {/* Logo */}
       <div className={cn("flex items-center gap-3 p-4 border-b h-16", collapsed && "justify-center")}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.svg" alt="Logo" className="w-8 h-8 shrink-0" />
+        <img src="/logo-mark.png" alt="Hansa Technologies" className="w-8 h-8 shrink-0" />
         {!collapsed && (
           <span className="font-semibold text-sm leading-tight">Predictive Maintenance AI</span>
         )}

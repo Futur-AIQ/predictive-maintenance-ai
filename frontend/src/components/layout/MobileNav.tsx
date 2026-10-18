@@ -44,7 +44,7 @@ export default function MobileNav({ open, onClose }: MobileNavProps) {
         <SheetHeader className="p-4 border-b">
           <SheetTitle className="flex items-center gap-2 text-left">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="Logo" className="w-7 h-7" />
+            <img src="/logo-mark.png" alt="Hansa Technologies" className="w-7 h-7" />
             Predictive Maintenance AI
           </SheetTitle>
         </SheetHeader>
